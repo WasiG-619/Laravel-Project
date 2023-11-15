@@ -5,18 +5,16 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use App\Models\Product;
 
-
-
-class AppLayout extends Component
+class ProductCard extends Component
 {
+    public $product;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($product)
     {
-        //
+        $this->product = $product;
     }
 
     /**
@@ -24,6 +22,6 @@ class AppLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.app-layout');
+        return view('components.product-card');
     }
 }
