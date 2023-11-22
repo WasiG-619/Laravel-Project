@@ -1,11 +1,9 @@
-
     <html>
 <head>
-    <title>Larevel</title>
+    <title>Laravel</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    <h1>This is the BG</h1>
-
-    {{$slot}}
+@include('layouts.app')
 </body>
     </html>

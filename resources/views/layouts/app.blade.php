@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'AWE Component 2: C3585124') }}</title>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -19,13 +19,13 @@
             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
             @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-            @endif     
+            @endif
         </div>
     </header>
     <main class="border-bottom-double border-2">
-    <!-- Menu -->
+    <!-- Main Content -->
     @include('layouts.menu')   
-    
+
     {{$slot ?? ''}}
 
     </main>

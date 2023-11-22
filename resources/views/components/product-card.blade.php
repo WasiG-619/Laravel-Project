@@ -1,5 +1,5 @@
 <div>
-   <p>{{$product->artist}}</p>
-   <p>{{$product->title}}</p>
-   <p>{{$product->price}}</p>
+    <p><b>Artist:</b> {{ $product->artist }}</p>
+    <p><b>Title:</b>{{ $product->title }}</p>
+    <p><b>Price:</b> {{ $product->price }}</p>
 </div>

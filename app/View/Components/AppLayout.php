@@ -7,8 +7,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use App\Models\Product;
 
-
-
 class AppLayout extends Component
 {
     /**

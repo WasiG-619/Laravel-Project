@@ -16,8 +16,10 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+/* Route::post('/logout', [ProfileController::class, 'logout'])->name('logout'); */
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,10 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy'); /// change these 3 to ProductController
 });
 
-Route::get('/product', [ProductController::class, 'index']);
-Route::get('/product/{id}', [ProductController::class, 'show']);
+Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/product/delete/{product}', [ProductController::class, 'destroy']);
 
-/*
-
-*/
+require __DIR__.'/auth.php';
