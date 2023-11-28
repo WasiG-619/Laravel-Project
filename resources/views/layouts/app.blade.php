@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>{{ config('app.name', 'AWE Component 2: C3585124') }}</title>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -12,7 +11,7 @@
     <body>
     <header class = "flex justify-between border-bottom-double border-2">
         <div class = "flex flex-col items-start border-2 rounded-lg m-5">            
-            <img src="{{asset('images/logo.png')}}" alt="logo"  class = "m-5">
+            <img src="{{asset('images/logo.png')}}" alt="logo"  style="width:150px;">
             <h2 class = "font-bold text-lg self-center">AWE COMPONENT 2</h2>
         </div>  
         <div>

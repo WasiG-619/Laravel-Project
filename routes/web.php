@@ -16,8 +16,8 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    return view('home');})->name('home');
+
 
 /* Route::post('/logout', [ProfileController::class, 'logout'])->name('logout'); */
 

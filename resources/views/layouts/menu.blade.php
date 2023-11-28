@@ -1,6 +1,6 @@
 <nav class = "flex justify-start">
     <div class="m-5 shadow-2xl rounded-sm bg-yellow-300 border-blue-300" >
-        <a href="{{ route('product') }}" class="text-gray-700 p-5 font-semibold text-3xl font-mono">
+        <a href="{{ route('home') }}" class="text-gray-700 p-5 font-semibold text-3xl font-mono">
                 Home
         </a>
     </div> 

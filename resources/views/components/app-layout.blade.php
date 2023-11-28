@@ -1,6 +1,6 @@
     <html>
 <head>
-    <title>Laravel</title>
+    <title>c3585124 - AWE: Component 2</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>

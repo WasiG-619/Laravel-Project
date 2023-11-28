@@ -19,12 +19,9 @@ class ProductSeeder extends Seeder
             ['artist' => 'Amy Winehouse', 'title' => 'Back to Black','price' => 299],
         ];
 
-        foreach($products as $product) {
-            Product::create([
-                'artist' => $product['artist'],
-                'title' => $product['title'],
-                'price' => $product['price'],
-       ]);
+        foreach ($products as $product) {
+            Product::create($product);
+        }
     }
 
     }
