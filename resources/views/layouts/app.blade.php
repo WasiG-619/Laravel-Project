@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap">
         <title>{{ config('app.name', 'AWE Component 2: C3585124') }}</title>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -11,8 +12,8 @@
     <body>
     <header class = "flex justify-between border-bottom-double border-2">
         <div class = "flex flex-col items-start border-2 rounded-lg m-5">            
-            <img src="{{asset('images/logo.png')}}" alt="logo"  style="width:150px;">
-            <h2 class = "font-bold text-lg self-center">AWE COMPONENT 2</h2>
+            <img src="{{asset('images/logo.png')}}" alt="logo"  style="width:200px;" class="self-center">
+            <h2 class = "font-bold text-lg self-center px-2">AWE COMPONENT 2</h2>
         </div>  
         <div>
             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
