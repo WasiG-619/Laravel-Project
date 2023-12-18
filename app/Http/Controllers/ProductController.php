@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Support\Facades\Redirect; //required for store
 
 class ProductController extends Controller
 {
@@ -22,17 +23,20 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    
+     public function create()
     {
-        //
+        return view('add-product-form');
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        Product::create($request->except('_token'));
+        return Redirect::route('product');
     }
 
     /**
@@ -41,7 +45,13 @@ class ProductController extends Controller
     public function show(int $id)
     {
         $product = Product::find($id);
-        return view('product',['product'=>$product]);
+        //dd($product); // debugging will show product properties
+
+    //    if (!$product) 
+    //    {
+     //       abort(404);
+     //   }
+     return view('product', ['product' => $product]);
     }
 
     /**
@@ -57,7 +67,8 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+
+
     }
 
     /**
