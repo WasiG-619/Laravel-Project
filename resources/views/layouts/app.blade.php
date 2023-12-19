@@ -27,6 +27,7 @@
     @include('layouts.menu')   
 
     {{$slot ?? ''}}
+    <div class="mb-8">
 
     </main>
     <footer>
