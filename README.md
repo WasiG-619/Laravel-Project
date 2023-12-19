@@ -34,7 +34,9 @@ In addition as Che routes the test site through a different port - Vite as a liv
 rather than <em>npm run dev</em>, use <em>npm run build</em> to see the site running.
 
 Spotify scrobbler (lastFM) exported to JSON and then imported into the DB.
+
 id created_at updated_at artist title price
+
 3 Coldplay Viva la Vida 3.49
 4 Coldplay Clocks 3.19
 5 2023-11-15 12:48:13 2023-11-15 12:48:13 Avicii Feeling Good 9.76
