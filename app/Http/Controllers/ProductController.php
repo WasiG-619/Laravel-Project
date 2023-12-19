@@ -47,11 +47,12 @@ class ProductController extends Controller
         $product = Product::find($id);
         //dd($product); // debugging will show product properties
 
-    //    if (!$product) 
-    //    {
-     //       abort(404);
-     //   }
-     return view('product', ['product' => $product]);
+        if (!$product) 
+        {
+            abort(404);
+        }
+
+     return view('view-product', ['product' => $product]);
     }
 
     /**
