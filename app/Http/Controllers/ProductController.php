@@ -16,7 +16,6 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('product', ['products' => $products]);
-
        // return view('product', ['products' => $products]);
     }
 
@@ -35,6 +34,7 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+        $this->authorize('create', Product::class);
         Product::create($request->except('_token'));
         return Redirect::route('product');
     }
@@ -80,4 +80,9 @@ class ProductController extends Controller
         $product->delete();
         return "PRODUCT DELETED";
     }
-}
+
+    public function __construct() {
+        $this->authorizeResource(Product::class, 'product');
+    }
+    
+  }

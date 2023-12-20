@@ -2,5 +2,7 @@
     <p><b>Artist:</b> {{ $product->artist }}</p>
     <p><b>Title:</b> {{ $product->title }}</p>
     <p><b>Price:</b> {{ $product->price }}</p>
-    <a href="{{ route('product.show', ['id' => $product->id]) }}" class="text-blue-700 underline">View Product</a>
+    <div class="flex justify-end"> <!-- old: mt-8 -->
+    <a href="{{ route('product.show', ['id' => $product->id]) }}" class="rounded-md bg-white px-2 py-1 mt-1">View Product</a>
+    </div>
 </div>

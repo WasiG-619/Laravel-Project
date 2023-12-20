@@ -1,11 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight"></h2>
     </x-slot>
 
     @if(isset($product))
         <div>
-            <h1>{{ $product->title }}</h1>
+            <h1>Title: {{ $product->title }}</h1>
             <p>Artist: {{ $product->artist }}</p>
             <p>Price: {{ $product->price }}</p>
 

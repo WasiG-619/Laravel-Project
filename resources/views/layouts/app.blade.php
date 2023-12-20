@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap">
-        <title>{{ config('app.name', 'AWE Component 2: C3585124') }}</title>
+        <title>{{ config('app.name', 'C3585124: AWE Component 2') }}</title>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -16,10 +16,15 @@
             <h2 class = "font-bold text-lg self-center px-2">AWE COMPONENT 2</h2>
         </div>  
         <div>
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-            @endif
+        @auth
+            @include('layouts.settings_dropdown') 
+        @endauth
+        @guest
+         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+          @if (Route::has('register'))
+               <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+          @endif  
+        @endguest
         </div>
     </header>
     <main class="border-bottom-double border-2">

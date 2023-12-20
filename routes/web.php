@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/product/create', [ProductController::class, 'create'])->name('create');
+Route::get('/product/create', [ProductController::class, 'create'])->middleware('can:create, App\Models\Product')->name('create');
 Route::get('/product', [ProductController::class, 'index'])->name('product');
 Route::post('/product', [ProductController::class, 'store'])->name('store');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
