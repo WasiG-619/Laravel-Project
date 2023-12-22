@@ -23,7 +23,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
             Gate::define('purchase-product', function (User $user){
-                return !$user->is_admin; // allows users to purchase products if they are not an admin user
+                return !$user->is_admin; // allows users to purchase products if they are NOT an admin user
             });
             Gate::define('edit-product', function (User $user){
                 return $user->is_admin; // Only admin users can edit a product

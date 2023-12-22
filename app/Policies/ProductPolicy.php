@@ -13,7 +13,7 @@ class ProductPolicy
      */
     public function viewAny(?User $user): bool   //NOTE THE ? preceeding User
     {
-            return true;
+            return true; //all users (guests, reigstered users and admin) can view products
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductPolicy
     public function create(User $user) : Response //NOTE THE NEW RETURN TYPE - IT IS STILL A PASS/FAIL TYPE RETURN
     {
         return $user->is_admin == 1 
-                 ? Response::allow() 
+                 ? Response::allow()
                  : Response::denyAsNotFound();
     }
 

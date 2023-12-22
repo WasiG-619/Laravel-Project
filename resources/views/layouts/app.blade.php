@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'C3585124: AWE Component 2') }}</title>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script src="{{ asset('js/my.js') }}" defer></script>
+        <script src="{{ asset('js/my.js') }}"></script>
     </head>
     <body>
     <header class = "flex justify-between border-bottom-double border-2">

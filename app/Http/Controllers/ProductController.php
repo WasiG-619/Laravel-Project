@@ -69,7 +69,7 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-
+        $this->authorize('update', $product);
 
     }
 
@@ -82,8 +82,8 @@ class ProductController extends Controller
         return "PRODUCT DELETED";
     }
 
-    public function __construct() {
-        $this->authorizeResource(Product::class, 'product');
-    }
+   # public function __construct() { //this method was causing the 403 error when accessing /products/{id}. seems to be applied globally which was the issue.... 
+   #     $this->authorizeResource(Product::class, 'product');
+   # }
     
   }
