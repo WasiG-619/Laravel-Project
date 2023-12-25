@@ -1,7 +1,7 @@
 <div class="bg-blue-400 border rounded-md overflow-hidden shadow-sm p-4">
     <p><b>Artist:</b> {{ $product->artist }}</p>
     <p><b>Title:</b> {{ $product->title }}</p>
-    <p><b>Price:</b> {{ $product->price }}</p>
+    <p><b>Price: </b>@money($product->price)</p>
 <div class="flex justify-end">
     @if(Route::currentRouteName()=='home' || Route::currentRouteName()=='product')
 <div class="flex justify-end">

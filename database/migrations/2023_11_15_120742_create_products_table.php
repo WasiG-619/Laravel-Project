@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('artist');
             $table->string('title');
-            $table->integer('price');
+            $table->float('price', 8, 2);
         });
     }
 

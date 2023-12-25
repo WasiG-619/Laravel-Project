@@ -13,6 +13,9 @@ class Product extends Model
     ['image_path' => 'https://picsum.photos/1200/800', // this will set the image_path to the randomised image generator url when a new product is created
     ];
     protected $guarded = [];
-
+    protected $casts = [
+        'price' => 'float', // casts the 
+    ];
+    
     
 }
