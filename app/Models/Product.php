@@ -14,8 +14,12 @@ class Product extends Model
     ];
     protected $guarded = [];
     protected $casts = [
-        'price' => 'float', // casts the 
+        'price' => 'float', // casts new products as a float typr 
     ];
     
+public function ProductType()
+{
+    return $this->belongsTo('App\Models\ProductType', 'product_type_id', 'id');
+}
     
 }

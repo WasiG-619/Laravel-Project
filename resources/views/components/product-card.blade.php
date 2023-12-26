@@ -1,4 +1,5 @@
 <div class="bg-blue-400 border rounded-md overflow-hidden shadow-sm p-4">
+    <p><b>Type:</b> {{ $product->productType->type }}</p>
     <p><b>Artist:</b> {{ $product->artist }}</p>
     <p><b>Title:</b> {{ $product->title }}</p>
     <p><b>Price: </b>@money($product->price)</p>
