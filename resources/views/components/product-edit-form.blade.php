@@ -9,7 +9,8 @@
                 </ul>
             </div>
         @endif
-        <form method="POST" action="">@method('PUT') 
+        <form method="POST" action="{{ route('product.update', ['id' => $product->id]) }}">
+        @method('PUT')
         @csrf
             <div class="p-2 m-2 rounded-lg shadow-lg bg-gray-50 border-2 border-blue-900 max-w-md">
                 <div class="font-bold text-sm mb-2">
@@ -22,7 +23,7 @@
                 </p>
                 <p class="text-gray-500 text-base mt-2">
                 <label for="price">Price:</label>
-                    <input type="number" step='0.01' value='{{($product->price ?? 0)/100 }}' class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="price" name="price" type="text" placeholder="price">
+                    <input type="number" step='0.01' value="{{$product->price }}" class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="price" name="price" type="text" placeholder="price">
                 </p>
                 <div class="flex items-center justify-end mt-4 top-auto">
                     <button type="submit" class="bg-gray-800 text-white text-xs px-2 py-2 rounded-md mb-2 mr-2 uppercase hover:underline">Update Product</button>

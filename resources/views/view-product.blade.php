@@ -10,7 +10,9 @@
         <!-- will check if the user is logged in, if so then the "buy" button is displayed. If not logged in, then there is no "Buy" button ------ consider adding JS method for a button alert for guests advising them to register/login if they want to purchase -->
         @can('purchase-product')
         <button value="{{ $product->id }}" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full buy-product">Buy</button>
-        @else
+        @endcan
+        @can('edit-product')
+        <button value="{{ $product->id }}" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full update-product">Edit Product</button>
         @endcan
 
         <!-- A delete product button for admin users could be here -->

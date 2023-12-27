@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function show(int $id)
     {
         $product = Product::find($id);
-        //dd($product); // debugging will show product properties
+       # dd($product);
 
         if (!$product) 
         {
@@ -69,7 +69,12 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+        dd($request->all());
+
         $this->authorize('update', $product);
+        $product->update($request->validated()); //old doesn't seem to work
+        $product->save(); 
+        return redirect(url("/product/{$product->id}"));
 
     }
 
