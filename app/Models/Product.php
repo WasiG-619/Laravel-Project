@@ -16,6 +16,11 @@ class Product extends Model
     protected $casts = [
         'price' => 'float', // casts new products as a float typr 
     ];
+
+    protected static function newFactory()
+    {
+        return ProductFactory::new();
+    }
     
 public function ProductType()
 {
