@@ -34,10 +34,40 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        $this->authorize('create', Product::class);
-        Product::create($request->except('_token'));
-        return Redirect::route('product');
-    }
+      ##GPT CODE ---- 
+
+      // Mapping array for product types
+        $productTypeMapping = [
+            'Song' => 1,
+            'Game' => 2,
+            'Book' => 3,
+        ];
+
+        // Get the product type from the form
+        $productTypeName = $request->input('product_type');
+
+        // Check if the product type exists in the mapping array
+        if (array_key_exists($productTypeName, $productTypeMapping)) {
+            // Retrieve the corresponding product type ID
+            $productTypeId = $productTypeMapping[$productTypeName];
+
+            // Create the product with the correct product type ID
+            Product::create($request->except('_token') + ['product_type_id' => $productTypeId]);
+
+            return Redirect::route('product');
+        } else {
+            // Handle the case where an invalid product type is provided
+            // You can return an error message or take appropriate action
+            // For example, redirecting back with an error message
+            return redirect()->back()->with('error', 'Invalid product type');
+        }
+    }     
+        //Old Code --- ProdType would not be correct after submitting the form, due to strings e.g. "Book" being passed rather than IDs
+        
+        #$this->authorize('create', Product::class);
+        #$product = Product::create($request->except('_token') + ['product_type_id' => $request->input('product_type')]);
+        #Product::create($request->except('_token'));
+        #return Redirect::route('product'); 
 
     /**
      * Display the specified resource.
@@ -69,12 +99,12 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        dd($request->all());
+        #dd($request->all());
 
         $this->authorize('update', $product);
         $product->update($request->validated()); //old doesn't seem to work
-        $product->save(); 
-        return redirect(url("/product/{$product->id}"));
+       # $product->save(); 
+       return redirect()->route('product.show', $product);
 
     }
 

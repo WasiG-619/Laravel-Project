@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'artist', 'price', 'image_path'];
+    protected $fillable = ['title', 'artist', 'price', 'image_path', 'product_type_id'];
     protected $attributes =
     ['image_path' => 'https://picsum.photos/1200/800', // this will set the image_path to the randomised image generator url when a new product is created
     ];
@@ -19,7 +19,7 @@ class Product extends Model
     
 public function ProductType()
 {
-    return $this->belongsTo('App\Models\ProductType', 'product_type_id', 'id');
+    return $this->belongsTo('App\Models\ProductType', 'product_type_id');
 }
     
 }

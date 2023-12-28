@@ -23,6 +23,7 @@ class StoreProductRequest extends FormRequest
     {
         return 
         [
+            'product_type' => 'required|in:Song,Game,Book', //in_array function used to only accept the three valid product_types        
             'title' => 'required|max:255',
             'artist' => 'required|max:255',
             'price' => 'required|numeric',

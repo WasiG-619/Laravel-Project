@@ -10,18 +10,27 @@
             </div>
         @endif
         <form method="POST" action="{{ route('store') }}">
-        @csrf
-            <div class="p-2 m-2 rounded-lg shadow-lg bg-gray-50 border-2 border-blue-900 max-w-md">
-                <div class="font-bold text-sm mb-2">
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="title" name="title" type="text" placeholder="title">
+            @csrf
+            <div class="p-2 m-2 rounded-lg shadow-lg bg-gray-50 border-2 border-blue-400 max-w-md">
+                <div class="productType mb-4"> <!-- Product Type Dropdown -->
+                    <label for="product_type" class="border-red rounded py-3 px-4">
+                        <select id="product_type" name="product_type" class="bg-grey-lighter block w-full text-grey-darker border border-red rounded py-3 px-4">
+                            <option value="Song">Song</option>
+                            <option value="Game">Game</option>
+                            <option value="Book">Book</option>
+                        </select>
+                    </label>
                 </div>
-                <p class="text-gray-700 text-sm">
-                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="artist" name="artist" type="text" placeholder="artist/author/console">
+                <div class="font-bold text-sm mb-2">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-2" id="title" name="title" type="text" placeholder="Title">
+                </div>
+                <p class="text-gray-700 text-sm mb-2">
+                    <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-2" id="artist" name="artist" type="text" placeholder="Artist/Author/Console">
                 </p>
-                <p class="text-gray-500 text-base mt-2">
-                    <input type="number" step='0.01' value='0.00' class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="price" name="price" type="text" placeholder="price">
+                <p class="text-gray-500 text-base mb-2">
+                    <input type="number" step='0.01' value='0.00' class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-2" id="price" name="price" type="text" placeholder="Price">
                 </p>
-                <div class="flex items-center justify-end mt-4 top-auto">
+                <div class="flex items-center justify-end mt-2 top-auto">
                     <button type="submit" class="bg-gray-800 text-white text-xs px-2 py-2 rounded-md mb-2 mr-2 uppercase hover:underline">Add New</button>
                 </div>
             </div>

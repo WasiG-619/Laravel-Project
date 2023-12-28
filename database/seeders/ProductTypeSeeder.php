@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\ProductType;
+use App\Models\Product;
+
 
 class ProductTypeSeeder extends Seeder
 {
@@ -21,8 +23,9 @@ class ProductTypeSeeder extends Seeder
         ];
 
         foreach($producttypes as $producttype)
-        [
-            ProductType::create(['type' => $producttype])
-        ];
+        {
+            ProductType::create(['type' => $producttype]);
+        }
+        
     }
 }
