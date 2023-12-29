@@ -59,7 +59,7 @@ class ProductSeeder extends Seeder
                                                                             
         ];
         
-        Product::factory()->count(65)->create(); // Once the db --ProductSeeder is run, it will generate the seeded (pre-defined) products as well as run the ProductFactory, generating 65 products
+      //  Product::factory()->count(65)->create(); // Once the db --ProductSeeder is run, it will generate the seeded (pre-defined) products as well as run the ProductFactory, generating 65 products
 
 
         foreach ($products as $product) {
