@@ -16,7 +16,6 @@ class ProductController extends Controller
     {
         $products = Product::all();
         return view('product', ['products' => $products]);
-       // return view('product', ['products' => $products]);
     }
 
     /**

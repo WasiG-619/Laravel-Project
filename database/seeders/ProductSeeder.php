@@ -46,19 +46,21 @@ class ProductSeeder extends Seeder
                                                                     // Games
 
                                                                     // Books
-['artist' => 'Miguel de Cervantes', 'title' => 'Don Quixote', 'price' => 19.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'Charles Dickens', 'title' => 'A Tale of Two Cities', 'price' => 17.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'J.R.R. Tolkien', 'title' => 'The Lord of the Rings', 'price' => 24.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'Antoine de Saint-Exupéry', 'title' => 'The Little Prince', 'price' => 14.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Prisoner of Azkaban', 'price' => 21.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Goblet of Fire', 'price' => 18.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Deathly Hallows Part 2', 'price' => 16.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'H. Rider Haggard', 'title' => 'She: A History of Adventure', 'price' => 22.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'Dan Brown', 'title' => 'The Da Vinci Code', 'price' => 20.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
-['artist' => 'J.D. Salinger', 'title' => 'The Catcher in the Rye', 'price' => 15.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'Miguel de Cervantes', 'title' => 'Don Quixote', 'price' => 19.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'Charles Dickens', 'title' => 'A Tale of Two Cities', 'price' => 17.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'J.R.R. Tolkien', 'title' => 'The Lord of the Rings', 'price' => 24.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'Antoine de Saint-Exupéry', 'title' => 'The Little Prince', 'price' => 14.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Prisoner of Azkaban', 'price' => 21.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Goblet of Fire', 'price' => 18.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'J.K. Rowling', 'title' => 'Harry Potter and the Deathly Hallows Part 2', 'price' => 16.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'H. Rider Haggard', 'title' => 'She: A History of Adventure', 'price' => 22.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'Dan Brown', 'title' => 'The Da Vinci Code', 'price' => 20.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
+            ['artist' => 'J.D. Salinger', 'title' => 'The Catcher in the Rye', 'price' => 15.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],
                                                                             
         ];
         
+        Product::factory()->count(65)->create(); // Once the db --ProductSeeder is run, it will generate the seeded (pre-defined) products as well as run the ProductFactory, generating 65 products
+
 
         foreach ($products as $product) {
             Product::create([
