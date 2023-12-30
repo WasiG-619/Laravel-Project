@@ -5,6 +5,7 @@ window.onload = function () {
             filterByProductType(e.target.value);
         }
     });
+
     document.addEventListener('click', e => {
         if (e.target.matches('button.select-product')) {
             getProductByID(e.target.value);
@@ -14,6 +15,9 @@ window.onload = function () {
         }
         if (e.target.matches('button.buy-product')) {
             buyProductByID(e.target.value);
+        }
+        if (e.target.matches('button.delete-product')) {
+            deleteProductByID(e.target.value);
         }
     });
 }
@@ -48,3 +52,25 @@ async function filterByProductType(id) {
         }
     }
 }
+
+async function deleteProductByID(id) {
+    try {
+        console.log('Deleting product with ID:', id);
+
+        const response = await axios.delete('/product/' + id);
+
+        console.log('Response:', response);
+
+        if (response.data.message === 'Product deleted') {
+            alert('Successfully Deleted'); // not generating an alert for some reason.....
+            window.location = '/product';
+        } else { 
+        }
+    } catch (error) {
+            console.error(error);
+        }
+}
+
+
+
+

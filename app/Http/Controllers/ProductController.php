@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Redirect; //required for store
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 
 class ProductController extends Controller
@@ -131,7 +131,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return "PRODUCT DELETED";
+        return redirect()->route('product');
+        return response()->json(['message' => 'Product deleted'], 200); //  200 =  HTTP_OK
+
     }
 
    # public function __construct() { //this method was causing the 403 error when accessing /products/{id}. seems to be applied globally which was the issue.... 

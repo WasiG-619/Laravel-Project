@@ -36,6 +36,7 @@ Route::post('/product', [ProductController::class, 'store'])->name('store');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
 Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit')->middleware('can:edit-product,id'); // Middleware used to check if user can access the Update Product form
-Route::get('/product/delete/{product}', [ProductController::class, 'destroy'])->name('product.delete');
+Route::post('/product/{product}/delete', [ProductController::class, 'destroy'])->name('product.delete.post');
+Route::delete('/product/{product}', [ProductController::class, 'destroy'])->name('product.delete');
 
 require __DIR__.'/auth.php';
