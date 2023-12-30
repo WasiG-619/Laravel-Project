@@ -11,7 +11,6 @@ class UpdateProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-    #return true;
         return $this->user()->is_admin == 1;
     }
 
@@ -26,6 +25,7 @@ class UpdateProductRequest extends FormRequest
             'title' => 'required|max:255',
             'artist' => 'required|max:255',
             'price' => 'required|numeric',
+            'producttype' => 'required|integer',
         ];
     }
 }

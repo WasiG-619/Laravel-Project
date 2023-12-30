@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\ProductType;
 use Illuminate\Support\Facades\Redirect; //required for store
+use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -33,6 +36,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+
+      //  dd($request->all());
       ##GPT CODE ---- 
 
       // Mapping array for product types
@@ -89,24 +94,37 @@ class ProductController extends Controller
      */
     public function edit(int $id)
     {
-            $product = Product::find($id);
-            return view('components.product-edit-form', ['product'=>$product]);
+        $product = Product::find($id);
+        $producttypes = ProductType::all()->sortBy('type');
+        return view('components.product-edit-form', ['product' => $product, 'producttypes' => $producttypes]);
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, $id)
     {
-        #dd($request->all());
+      //  dd($request->all());
+      $product = Product::find($id); // Finds the product using the ID param
+      
+      if (!$product) // Checks if Product exists, else displays a 404
+      {
+          abort(404);
+      }
 
-        $this->authorize('update', $product);
-        $product->update($request->validated()); //old doesn't seem to work
-       # $product->save(); 
-       return redirect()->route('product.show', $product);
+       // Updates the product properties
+        $product->artist = $request->artist;
+        $product->title = $request->title;
+        $product->price = $request->price;
+        $product->product_type_id = $request->producttype;
 
+        $product->save();
+    
+        return redirect()->route('product');
     }
-
+    
+    
     /**
      * Remove the specified resource from storage.
      */
