@@ -37,20 +37,6 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
       //  dd($request->all());
-
-                            ### Image Upload Storing & Validation
-
-      $image = $request->file('upload_image'); // retrieves and stores the uploaded image in $image
-
-      if ($image !== null) // If $image is NOT NULL, then store in /public/images
-      {
-          $imagePath = $image->store('public/images');
-      } else 
-      {     // If no image is uploaded and $image is null, then a default placeholder image is set
-          $imagePath = 'https://picsum.photos/1200/800';
-      }
-
-                            ### Store Product and ProductType correctly
       
       // Mapping array for product types
         $productTypeMapping = [
@@ -67,26 +53,23 @@ class ProductController extends Controller
             // Retrieve the corresponding product type ID
             $productTypeId = $productTypeMapping[$productTypeName];
 
-        // Create the product retrieved from the form.
-        Product::create(
-        [
-            'image_path' => str_replace("public/images/", "", $imagePath), // Modifies the filename 
-            'product_type_id' => $productTypeId,
-            'title' => $request->input('title'),
-            'artist' => $request->input('artist'),
-            'price' => $request->input('price'),
-        ]
-        );
+            // Create the product with the correct product type ID
+            Product::create($request->except('_token') + ['product_type_id' => $productTypeId]);
 
             return Redirect::route('product');
-        } 
-        
-        else 
-        { // If an invalid product type is provided, error is shown
+        } else {
+            // Handle the case where an invalid product type is provided
+            // You can return an error message or take appropriate action
+            // For example, redirecting back with an error message
             return redirect()->back()->with('error', 'Invalid product type');
         }
-
     }     
+        //Old Code --- ProdType would not be correct after submitting the form, due to strings e.g. "Book" being passed rather than IDs
+        
+        #$this->authorize('create', Product::class);
+        #$product = Product::create($request->except('_token') + ['product_type_id' => $request->input('product_type')]);
+        #Product::create($request->except('_token'));
+        #return Redirect::route('product'); 
 
     /**
      * Display the specified resource.
