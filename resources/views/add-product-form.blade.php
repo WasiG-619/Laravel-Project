@@ -9,7 +9,7 @@
                 </ul>
             </div>
         @endif
-        <form method="POST" action="{{ route('store') }}">
+        <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data"> <!-- Ensures the image upload is included with the POST form !-->
             @csrf
             <div class="p-2 m-2 rounded-lg shadow-lg bg-gray-50 border-2 border-blue-400 max-w-md">
                 <div class="productType mb-4"> <!-- Product Type Dropdown -->
@@ -30,9 +30,15 @@
                 <p class="text-gray-500 text-base mb-2">
                     <input type="number" step='0.01' value='0.00' class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-2" id="price" name="price" type="text" placeholder="Price">
                 </p>
-                <div class="flex items-center justify-end mt-2 top-auto">
-                    <button type="submit" class="bg-gray-800 text-white text-xs px-2 py-2 rounded-md mb-2 mr-2 uppercase hover:underline">Add New</button>
+                <div class="form-group flex items-center mb-4">
+                    <label for="image" class="text-sm font-semibold	text-gray-700 ">Product Image</label>
+                    <input type="file" class= "pl-2" name="upload_image" id="image">
                 </div>
+
+                <div class="flex items-center justify-end pl-5 mt-4 top-auto">
+                <button type="submit" class="bg-gray-800 text-white text-xs px-2 py-2 rounded-md mb-2 mr-2 uppercase hover:underline">Add Product</button>
+                </div>
+
             </div>
         </form>
     </div>

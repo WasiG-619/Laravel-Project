@@ -55,11 +55,7 @@ async function filterByProductType(id) {
 
 async function deleteProductByID(id) {
     try {
-        console.log('Deleting product with ID:', id);
-
         const response = await axios.delete('/product/' + id);
-
-        console.log('Response:', response);
 
         if (response.data.message === 'Product deleted') {
             alert('Successfully Deleted'); // not generating an alert for some reason.....

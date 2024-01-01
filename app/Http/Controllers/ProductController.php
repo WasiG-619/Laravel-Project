@@ -36,10 +36,8 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-
       //  dd($request->all());
-      ##GPT CODE ---- 
-
+      
       // Mapping array for product types
         $productTypeMapping = [
             'Song' => 1,
