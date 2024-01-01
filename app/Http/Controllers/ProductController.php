@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Redirect; //required for store
-use Illuminate\Http\Response;
+use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
@@ -15,9 +15,19 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $query = Product::query(); // This selects all Products via Product model
+
+        // Filter By Title
+        $titleFilter = $request->input('title');
+        if ($titleFilter) 
+        {
+            $query->where('title', 'like', '%' . $titleFilter . '%');
+        }
+
+        $products = $query->get();
+
         return view('product', ['products' => $products]);
     }
 

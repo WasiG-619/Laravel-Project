@@ -44,6 +44,16 @@ class ProductSeeder extends Seeder
             ['artist' => 'Robin Schulz', 'title' => 'Love Me Loud', 'price' => 8.81, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Sam Feldt', 'title' => 'Call On Me', 'price' => 4.97, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
                                                                     // Games
+            ['artist' => 'PS2', 'title' => 'Metal Gear Solid 2: Sons of Liberty', 'price' => 4.99, 'image_path' => '/mgs2.png', 'product_type_id' => 2],
+            ['artist' => 'PS2', 'title' => 'Metal Gear Solid 3: Snake Eater', 'price' => 4.75, 'image_path' => '/mgs3.jpg', 'product_type_id' => 2],
+            ['artist' => 'PS5', 'title' => 'Death Stranding', 'price' => 22.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 2],
+            ['artist' => 'PS5', 'title' => 'Rocket League', 'price' => 25.50, 'image_path' => '/rocket_league.jpg', 'product_type_id' => 2],
+            ['artist' => 'PS4', 'title' => 'Red Dead Redemption 2', 'price' => 28.49, 'image_path' => '/red-dead-2.jpg', 'product_type_id' => 2],
+            ['artist' => 'PS3', 'title' => 'Metal Gear Solid 4: Guns of the Patriots', 'price' => 4.99, 'image_path' => '/mgs4.jpg', 'product_type_id' => 2],
+            ['artist' => 'PS3', 'title' => "Assassin's Creed Brotherhood", 'price' => 4.95, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 2],
+            ['artist' => 'PS3', 'title' => "Tom Clancy's Splinter Cell", 'price' => 4.75, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 2],
+            ['artist' => 'PS4', 'title' => 'Uncharted 2: Among Thieves Remastered', 'price' => 14.25, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 2],
+
 
                                                                     // Books
             ['artist' => 'Miguel de Cervantes', 'title' => 'Don Quixote', 'price' => 19.99, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 3],

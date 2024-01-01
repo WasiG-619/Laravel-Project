@@ -2,6 +2,16 @@
     <x-slot name="header">
     </x-slot>
 
+    <!-- Product Filtering -->
+    <div class="filter-search-box sm:flex sm:items-center sm:ml-6">
+        <form method="GET" action="{{ route('product') }}">
+            <label for="title">Filter by Title:</label>
+            <input type="text" name="title" id="title" value="{{ request('title') }}">
+            <button type="submit">Apply Filter</button>
+        </form>
+    </div>
+   
+   <!-- Main Content - Products Grid Layout -->
     @if(isset($product))
         <div>
             <h1>Title: {{ $product->title }}</h1>

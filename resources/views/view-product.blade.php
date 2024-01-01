@@ -11,7 +11,7 @@
             <img src="{{ asset('storage/images/' . $product->image_path) }}" class="mb-4 w-full h-auto">
         @else
             <!-- Else, it displays the uploaded file -->
-            <img src="{{ $product->image_path }}" class="mb-4 w-full h-auto">
+            <img src="{{ asset($product->image_path) }}" class="mb-4 w-full h-auto">
         @endif
 
         <!-- Will check if the user is logged in, if so then the "buy" button is displayed. If not logged in, then there is no "Buy" button ------ consider adding JS method for a button alert for guests advising them to register/login if they want to purchase -->
