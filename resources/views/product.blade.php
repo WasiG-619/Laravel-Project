@@ -44,4 +44,10 @@
             @endforeach
         </div>
     @endif
+
+    <!-- Pagination -->
+    <div class="mt-4 px-8">
+        {{ $products->links() }}
+    </div>
+
 </x-app-layout>

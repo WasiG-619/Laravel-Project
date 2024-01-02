@@ -34,7 +34,7 @@ class ProductSeeder extends Seeder
             ['artist' => 'Riton', 'title' => 'Friday - Dopamine Re-Edit', 'price' => 9.70, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Wahlstedt', 'title' => 'Nobody Else', 'price' => 7.88, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Deepend', 'title' => 'Skinny Dip - Komodo', 'price' => 7.30, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
-            ['artist' => 'Kungs', 'title' => 'This Girl - Kungs Vs. Cookin\' On 3 Burners', 'price' => 9.88, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
+            ['artist' => 'Kungs', 'title' => 'This Girl', 'price' => 9.88, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Robin Schulz', 'title' => 'Ha Leh Lou Ya', 'price' => 6.50, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Avicii', 'title' => 'True Believer', 'price' => 8.87, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],
             ['artist' => 'Robin Schulz', 'title' => 'Sugar', 'price' => 3.82, 'image_path' => 'https://picsum.photos/1200/800', 'product_type_id' => 1],

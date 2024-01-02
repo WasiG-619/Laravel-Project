@@ -7,7 +7,8 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Support\Facades\Redirect; //required for store
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // required for filtering; grabs the form inputs
+use Illuminate\Support\Facades\DB; // required for pagination; Query builder that interacts with DB 
 
 
 class ProductController extends Controller
@@ -18,6 +19,8 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         #dd($request->all());
+
+        ///// Product Filtering /////
 
         $query = Product::query(); // This selects all Products via Product model
 
@@ -36,7 +39,12 @@ class ProductController extends Controller
 
         $products = $query->get(); // Grabs all the rows that match the where clauses
 
+        ///// Pagination /////
+        $perPage = 30; // Statically defined limit of products per page. If > 20 then pagination is used
+        $products = $query->paginate($perPage);        
+
         return view('product', ['products' => $products]);
+
     }
 
     /**

@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div>
-        <p>Homepage</p>
+    <div class="ml-5">
+        <p>We have a wide range of products available. Please head over to the Products page!</p>
     </div>
 </x-app-layout>
