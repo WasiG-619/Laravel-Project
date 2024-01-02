@@ -47,7 +47,9 @@
 
     <!-- Pagination -->
     <div class="mt-4 px-8">
-        {{ $products->links() }}
+    <!-- Appends the Product Type & Title properties to the pagination which is parsed to the URL-->
+    {{ $products->appends(['product_type' => request('product_type'), 'title' => request('title')])->links() }}
+     <!-- Old {{ $products->links() }} -->
     </div>
 
 </x-app-layout>
