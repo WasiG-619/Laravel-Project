@@ -17,6 +17,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        #dd($request->all());
+
         $query = Product::query(); // This selects all Products via Product model
 
         // Filter By Title
@@ -26,7 +28,14 @@ class ProductController extends Controller
             $query->where('title', 'like', '%' . $titleFilter . '%');
         }
 
-        $products = $query->get();
+        // Filter By ProductType
+        $productTypeFilter = $request->input('product_type');
+        if ($productTypeFilter !== null) 
+        {
+            $query->where('product_type_id', $productTypeFilter);
+        }
+
+        $products = $query->get(); // Grabs all the rows that match the where clauses
 
         return view('product', ['products' => $products]);
     }
