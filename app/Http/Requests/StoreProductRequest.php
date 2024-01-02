@@ -27,6 +27,7 @@ class StoreProductRequest extends FormRequest
             'title' => 'required|max:255',
             'artist' => 'required|max:255',
             'price' => 'required|numeric',
+            'upload_image' => 'file|mimes:jpg,png|max:2000', // Validation for upload_image, only JPG and PNG format accepted and a max file size of 2000KB (2MB) 
         ];
     }
 }
