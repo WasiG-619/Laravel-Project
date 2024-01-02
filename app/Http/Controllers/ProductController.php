@@ -19,10 +19,28 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         #dd($request->all());
-
-        ///// Product Filtering /////
-
         $query = Product::query(); // This selects all Products via Product model
+
+        ######## Product Sorting/Order By ########
+        $orderBy = $request->input('order_by', 'title');
+        $orderDirection = $request->input('order_direction', 'asc');
+
+        $validateOrderColumn = ['title', 'price'];
+        $validateOrderDirection = ['asc', 'desc'];
+    
+        if (!in_array($orderBy, $validateOrderColumn)) 
+        {
+            $orderBy = 'title';
+        }
+    
+        if (!in_array($orderDirection, $validateOrderDirection)) 
+        {
+            $orderDirection = 'asc';
+        }
+    
+        $products = $query->orderBy($orderBy, $orderDirection)->get();
+
+        ######## Product Filtering ########
 
         // Filter By Title
         $titleFilter = $request->input('title');
@@ -33,18 +51,24 @@ class ProductController extends Controller
 
         // Filter By ProductType
         $productTypeFilter = $request->input('product_type');
-        if ($productTypeFilter !== null) {
+        if ($productTypeFilter !== null) 
+        {
             $query->where('product_type_id', $productTypeFilter);
         }
 
         $products = $query->get(); // Grabs all the rows that match the where clauses
 
-        ///// Pagination /////
-        $perPage = 30; // Statically defined limit of products per page. If > 20 then pagination is used
+        ######## Pagination ########
+        $perPage = 30; // Statically defined limit of products per page
         $products = $query->paginate($perPage);        
 
-        return view('product', ['products' => $products]);
-
+        return view('product', 
+        [
+            'products' => $products,
+            'orderBy' => $orderBy,
+            'orderDirection' => $orderDirection,
+        ]);
+    
     }
 
     /**

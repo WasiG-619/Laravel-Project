@@ -21,9 +21,7 @@
                     <select id="producttype" name="producttype">
                         @foreach($producttypes as $producttype)
                             @if($producttype['id'] == $product['product_type_id'])
-                                <option value="{{ $producttype['id'] }}" selected>{{ $producttype['type'] }}</option>
-                            @else
-                                <option value="{{ $producttype['id'] }}">{{ $producttype['type'] }}</option>
+                                <option value="{{ $producttype['id'] }}">{{ $producttype['type'] }}</option> <!-- Options in the else statement removed to only show the selected option as a form of validation-->
                             @endif
                         @endforeach
                     </select>

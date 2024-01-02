@@ -1,6 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
-    </x-slot>
+    @vite('resources/css/app.css')
 
 <!-- Product Filtering -->
 <div class="filter-search-box sm:flex sm:items-center sm:ml-6 space-x-4">
@@ -24,9 +23,18 @@
             Reset Filters
         </a>
     </form>
-</div>
 
-   
+    <!-- Order By Price Or Title -->
+        <a class="p-3" href="{{ route('product', ['order_by' => 'title', 'order_direction' => ($orderBy === 'title' && $orderDirection === 'asc') ? 'desc' : 'asc']) }}" class="text-gray-500">
+            Order by Title</a>
+        <a class="pl-5" href="{{ route('product', ['order_by' => 'price', 'order_direction' => ($orderBy === 'price' && $orderDirection === 'asc') ? 'desc' : 'asc']) }}" class="text-gray-500">
+            Order by Price</a>
+
+        <a href="{{ route('product') }}" class="text-gray-500 ml-4"> <!-- Reset not working -->
+            Reset Order
+        </a>
+
+</div>
    <!-- Main Content - Products Grid Layout -->
     @if(isset($product))
         <div>
