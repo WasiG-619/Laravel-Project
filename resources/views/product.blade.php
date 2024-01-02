@@ -47,7 +47,7 @@
 
     <!-- Pagination -->
     <div class="mt-4 px-8">
-    <!-- Appends the Product Type & Title properties to the pagination which is parsed to the URL-->
+    <!-- Appends the two parameters used by the filters (Product Type ID and Title) to the pagination which is parsed to the URL-->
     {{ $products->appends(['product_type' => request('product_type'), 'title' => request('title')])->links() }}
      <!-- Old {{ $products->links() }} -->
     </div>
