@@ -24,6 +24,8 @@ window.onload = function () {
 
 function buyProductByID(id) {
     alert('product purchased');
+    window.location = "/product/";
+
 }
 
 function getProductByID(id) {

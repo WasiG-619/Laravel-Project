@@ -30,8 +30,7 @@ class ProductController extends Controller
 
         // Filter By ProductType
         $productTypeFilter = $request->input('product_type');
-        if ($productTypeFilter !== null) 
-        {
+        if ($productTypeFilter !== null) {
             $query->where('product_type_id', $productTypeFilter);
         }
 

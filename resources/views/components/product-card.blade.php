@@ -1,8 +1,12 @@
-<div class="bg-blue-400 border rounded-md overflow-hidden shadow-sm p-4">
-    <p><b>Type: {{ $product->productType->type }}</p></b><br>
-    <p><b>Artist:</b> {{ $product->artist }}</p>
-    <p><b>Title:</b> {{ $product->title }}</p>
-    <p><b>Price: </b>@money($product->price)</p>
+<div class="bg-blue-400 border rounded-md overflow-hidden shadow-sm p-4 relative">
+    <div class="absolute top-0 right-0 bg-white px-2 py-1 rounded-md">
+    <p><b>Type: {{ $product->productType->type }}</p></b>
+    </div>
+
+    <p class="mt-3"><b>Artist:</b> {{ $product->artist }}</p>
+    <p class="mt-1"><b>Title:</b> {{ $product->title }}</p>
+    <p class="mt-1"><b>Price: </b>@money($product->price)</p>
+
 <div class="flex justify-end">
     @if(Route::currentRouteName()=='home' || Route::currentRouteName()=='product')
 <div class="flex justify-end">
