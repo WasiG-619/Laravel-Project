@@ -30,7 +30,7 @@
         <a class="pl-5" href="{{ route('product', ['order_by' => 'price', 'order_direction' => ($orderBy === 'price' && $orderDirection === 'asc') ? 'desc' : 'asc']) }}" class="text-gray-500">
             Order by Price</a>
 
-        <a href="{{ route('product') }}" class="text-gray-500 ml-4"> <!-- Reset not working -->
+            <a href="{{ route('product', ['reset_order' => true]) }}" class="text-gray-500 ml-4">
             Reset Order
         </a>
 

@@ -22,23 +22,33 @@ class ProductController extends Controller
         $query = Product::query(); // This selects all Products via Product model
 
         ######## Product Sorting/Order By ########
-        $orderBy = $request->input('order_by', 'title');
-        $orderDirection = $request->input('order_direction', 'asc');
-
-        $validateOrderColumn = ['title', 'price'];
-        $validateOrderDirection = ['asc', 'desc'];
-    
-        if (!in_array($orderBy, $validateOrderColumn)) 
+        $resetOrder = $request->input('reset_order');
+        if ($resetOrder) 
         {
-            $orderBy = 'title';
-        }
-    
-        if (!in_array($orderDirection, $validateOrderDirection)) 
-        {
+            $orderBy = 'id';
             $orderDirection = 'asc';
+            $products = $query->orderBy($orderBy, $orderDirection)->get();
         }
+        else
+        {
+            $orderBy = $request->input('order_by', 'title');
+            $orderDirection = $request->input('order_direction', 'asc');
     
-        $products = $query->orderBy($orderBy, $orderDirection)->get();
+            $validateOrderColumn = ['title', 'price'];
+            $validateOrderDirection = ['asc', 'desc'];
+        
+            if (!in_array($orderBy, $validateOrderColumn)) 
+            {
+                $orderBy = 'title';
+            }
+        
+            if (!in_array($orderDirection, $validateOrderDirection)) 
+            {
+                $orderDirection = 'asc';
+            }
+        
+            $products = $query->orderBy($orderBy, $orderDirection)->get();
+        }
 
         ######## Product Filtering ########
 
@@ -60,8 +70,7 @@ class ProductController extends Controller
 
         ######## Pagination ########
         $perPage = 30; // Statically defined limit of products per page
-        $products = $query->paginate($perPage); 
-             
+        $products = $query->paginate($perPage);       
 
         return view('product', 
         [
