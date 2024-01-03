@@ -1,7 +1,7 @@
 <x-app-layout>
     @vite('resources/css/app.css')
 
-<!-- Product Filtering -->
+<!-- Product Filtering & Search Box -->
 <div class="filter-search-box sm:flex sm:items-center sm:ml-6 space-x-4">
     <form method="GET" action="{{ route('product') }}">
         <label for="productType" class="text-gray-500">Filter by Product Type:</label>
@@ -57,7 +57,6 @@
     <div class="mt-4 px-8">
     <!-- Appends the two parameters used by the filters (Product Type ID and Title) to the pagination which is parsed to the URL-->
     {{ $products->appends(['product_type' => request('product_type'), 'title' => request('title')])->links() }}
-     <!-- Old {{ $products->links() }} -->
     </div>
 
 </x-app-layout>

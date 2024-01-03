@@ -42,7 +42,7 @@ class ProductController extends Controller
 
         ######## Product Filtering ########
 
-        // Filter By Title
+        // Filter By Title - Search Box
         $titleFilter = $request->input('title');
         if ($titleFilter) 
         {
@@ -60,7 +60,8 @@ class ProductController extends Controller
 
         ######## Pagination ########
         $perPage = 30; // Statically defined limit of products per page
-        $products = $query->paginate($perPage);        
+        $products = $query->paginate($perPage); 
+             
 
         return view('product', 
         [
